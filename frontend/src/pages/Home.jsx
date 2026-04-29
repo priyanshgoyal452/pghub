@@ -4,7 +4,7 @@ import { Search, MapPin, Building, Home, Users, ArrowRight, Shield, Clock, Thumb
 
 import { mockPGs } from '../data/mockData';
 
-const mHomePage = () => {
+const HomePage = () => {
   const [location, setLocation] = useState('');
   const [budget, setBudget] = useState('');
   const [gender, setGender] = useState('');
