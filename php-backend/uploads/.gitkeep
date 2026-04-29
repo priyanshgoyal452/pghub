@@ -1,0 +1,3 @@
+This directory stores user-uploaded images (PG photos, marketplace item photos).
+It is created automatically on first upload.
+Do not delete this file — it ensures the uploads/ directory is tracked by git.
