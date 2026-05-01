@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { MapPin, IndianRupee, Phone, CheckCircle2, User, Mail, ShieldCheck, Share2, Heart, Award, ImageIcon, Star } from 'lucide-react';
+import { getFullImageUrl } from '../utils/imageUrl';
 import { mockPGs } from '../data/mockData';
 import PGCard from '../components/PGCard';
 
@@ -156,7 +157,7 @@ const PGDetail = () => {
           <div className="mb-8 grid grid-cols-1 md:grid-cols-3 gap-4 h-64 md:h-[400px]">
               <div className="md:col-span-2 h-full rounded-2xl overflow-hidden cursor-pointer group relative">
                   <img 
-                    src={pg.images[0]} 
+                    src={getFullImageUrl(pg.images[0])} 
                     alt={pg.name} 
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                   />
@@ -165,7 +166,7 @@ const PGDetail = () => {
               <div className="hidden md:flex flex-col gap-4 h-full">
                   <div className="flex-1 rounded-2xl overflow-hidden cursor-pointer relative group">
                       <img 
-                        src={pg.images[1] || pg.images[0]} 
+                        src={getFullImageUrl(pg.images[1] || pg.images[0])} 
                         alt="Room" 
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                       />
@@ -173,7 +174,7 @@ const PGDetail = () => {
                   <div className="flex-1 rounded-2xl overflow-hidden cursor-pointer relative group bg-gray-100">
                       {pg.images[2] ? (
                         <img 
-                          src={pg.images[2]} 
+                          src={getFullImageUrl(pg.images[2])} 
                           alt="Living Area" 
                           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                         />

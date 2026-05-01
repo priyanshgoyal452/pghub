@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Search, MapPin, Building, Home, Users, ArrowRight, Shield, Clock, ThumbsUp } from 'lucide-react';
+import { getFullImageUrl } from '../utils/imageUrl';
 
 import { mockPGs } from '../data/mockData';
 
@@ -185,7 +186,7 @@ const HomePage = () => {
               <div key={pg._id} className="cursor-pointer group relative" onClick={() => navigate(`/pgs/${pg._id}`)}>
                  <div className="bg-white border text-left border-gray-200 rounded-xl overflow-hidden shadow-sm group-hover:shadow-2xl group-hover:-translate-y-2 transition-all duration-300 h-full flex flex-col relative z-10">
                     <div className="relative h-56 overflow-hidden bg-gray-200">
-                      <img src={pg.images[0] || `https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=800&q=80&rand=${index}`} alt={pg.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                      <img src={pg.images[0] ? getFullImageUrl(pg.images[0]) : `https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=800&q=80&rand=${index}`} alt={pg.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                       <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
                       <div className="absolute top-3 left-3 flex gap-2">
                         <span className="bg-white/95 text-gray-900 text-[11px] font-extrabold px-2.5 py-1 rounded shadow-sm uppercase tracking-wide">

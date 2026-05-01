@@ -1,5 +1,6 @@
 import { Link, useNavigate } from 'react-router-dom';
 import { ShieldCheck, User, PhoneCall, ChevronRight, ImageIcon } from 'lucide-react';
+import { getFullImageUrl } from '../utils/imageUrl';
 
 const PGCard = ({ pg, compact = false }) => {
   const navigate = useNavigate();
@@ -21,7 +22,7 @@ const PGCard = ({ pg, compact = false }) => {
       <div className={`${compact ? 'w-full h-48 border-b' : 'sm:w-1/3 h-48 sm:h-auto sm:border-r'} relative border-gray-100 cursor-pointer shrink-0`}>
         {pg.images && pg.images.length > 0 ? (
           <img 
-            src={pg.images[0]} 
+            src={getFullImageUrl(pg.images[0])} 
             alt={pg.name}
             className="w-full h-full object-cover bg-gray-100"
           />

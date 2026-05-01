@@ -1,4 +1,5 @@
 import { Tag, User, ShieldCheck, Trash2 } from 'lucide-react';
+import { getFullImageUrl } from '../utils/imageUrl';
 
 const ItemCard = ({ item, onDelete }) => {
   const studentData = JSON.parse(localStorage.getItem('studentData') || 'null');
@@ -16,7 +17,7 @@ const ItemCard = ({ item, onDelete }) => {
     <div className="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-200 group hover:shadow-md transition-shadow flex flex-col h-full">
       <div className="h-48 bg-gray-100 relative overflow-hidden flex-shrink-0">
         {item.images && item.images.length > 0 ? (
-          <img src={item.images[0]} alt={item.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+          <img src={getFullImageUrl(item.images[0])} alt={item.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
         ) : (
           <div className="w-full h-full flex items-center justify-center text-gray-400 font-bold bg-gray-200">No Image</div>
         )}

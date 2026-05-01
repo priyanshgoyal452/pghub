@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Check, X, MapPin, LogOut, Trash2, Download } from 'lucide-react';
+import { getFullImageUrl } from '../utils/imageUrl';
 
 const Admin = () => {
   const [pgs, setPgs] = useState([]);
@@ -227,7 +228,7 @@ const Admin = () => {
                     <tr key={pg._id} className="hover:bg-gray-50">
                       <td className="px-6 py-4">
                         <div className="flex items-center">
-                          <img className="h-10 w-10 rounded-lg object-cover" src={pg.images[0] || 'https://via.placeholder.com/40'} alt="" />
+                          <img className="h-10 w-10 rounded-lg object-cover" src={pg.images[0] ? getFullImageUrl(pg.images[0]) : 'https://via.placeholder.com/40'} alt="" />
                           <div className="ml-4">
                             <div className="text-sm font-bold text-gray-900">{pg.name}</div>
                             <div className="text-xs font-bold text-primary mt-0.5">By: {pg.owner_name || 'Unknown Owner'}</div>
@@ -293,7 +294,7 @@ const Admin = () => {
                     <tr key={item._id} className="hover:bg-gray-50">
                       <td className="px-6 py-4">
                         <div className="flex items-center">
-                          <img className="h-10 w-10 rounded-lg object-cover" src={item.images[0] || 'https://via.placeholder.com/40'} alt="" />
+                          <img className="h-10 w-10 rounded-lg object-cover" src={item.images[0] ? getFullImageUrl(item.images[0]) : 'https://via.placeholder.com/40'} alt="" />
                           <div className="ml-4 max-w-[200px]">
                             <div className="text-sm font-bold text-gray-900 truncate">{item.title}</div>
                             <div className="text-xs text-gray-500">{item.category} • {item.condition}</div>
